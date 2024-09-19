@@ -1,0 +1,142 @@
+/* General styles */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    flex-direction: column;
+}
+
+.clock {
+    display: flex;
+    align-items: center;
+    font-size: 5vw;
+}
+
+.box {
+    width: 15vw;
+    height: 15vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9eded;
+    border-radius: 15px;
+    margin: 0 2vw;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border: 2px solid #ccc;
+    animation: pulse 1s infinite;
+    transition: transform 0.5s;
+}
+
+.box:hover {
+    transform: scale(1.1);
+}
+
+.dots {
+    font-size: 6vw;
+    color: #ffffff;
+}
+
+/* Container for clock and toggle button */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Toggle Switch Container */
+.toggle-container {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 500px;
+}
+
+.toggle-input {
+    display: none; /* Hide the default checkbox */
+}
+
+.toggle-label {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    background-color: #f36f6f;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 36px;
+    height: 36px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-input:checked + .toggle-label {
+    background-color: #4caf50; /* Change background when toggled ON */
+}
+
+.toggle-input:checked + .toggle-label .toggle-slider {
+    transform: translateX(40px); /* Move the slider */
+}
+
+/* Text on the toggle */
+.toggle-text {
+    position: absolute;
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.on {
+    left: 10px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.off {
+    right: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.toggle-input:checked + .toggle-label .on {
+    opacity: 0; /* Hide 24-hour text when toggled */
+}
+
+.toggle-input:checked + .toggle-label .off {
+    opacity: 1; /* Show 12-hour text when toggled */
+}
+
+/* Media Query for Small Devices */
+@media (max-width: 600px) {
+    .clock {
+        font-size: 8vw;
+    }
+
+    .box {
+        width: 25vw;
+        height: 25vw;
+        margin: 0 1.5vw;
+    }
+
+    .dots {
+        font-size: 8vw;
+    }
+}
